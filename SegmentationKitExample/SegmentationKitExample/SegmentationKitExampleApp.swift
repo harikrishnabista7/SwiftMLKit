@@ -11,7 +11,7 @@ import SwiftUI
 struct SegmentationKitExampleApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            BackgroundRemovalDemoView()
         }
     }
 }
