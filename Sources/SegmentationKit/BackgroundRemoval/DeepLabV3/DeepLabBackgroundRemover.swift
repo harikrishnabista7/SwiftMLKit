@@ -86,7 +86,7 @@ public final class DeepLabBackgroundRemover: Segmentation {
             }
 
             // 6. Convert final CGImage back into UIImage and return.
-            return UIImage(cgImage: result)
+            return UIImage(cgImage: result).resize(to: image.size)
 
         } catch let error as BackgroundRemovalError {
             // Forward known background removal errors.
