@@ -1,14 +1,13 @@
-
 # SegmentationKit
 
 **SegmentationKit** is a Swift package for **on-device background removal** in images. It uses Core ML models to generate **pixel-accurate segmentation masks**, allowing you to efficiently remove backgrounds without relying on any server or internet connection.
 
 ## Features
 
-* On-device background removal for privacy and performance
-* Pixel-accurate segmentation using Core ML
-* Supports multiple models (currently DeepLabV3)
-* Async/await support for smooth UI integration
+- On-device background removal for privacy and performance
+- Pixel-accurate segmentation using Core ML
+- Supports multiple models (currently DeepLabV3)
+- Async/await support for smooth UI integration
 
 ## Installation
 
@@ -31,7 +30,7 @@ import SegmentationKit
 do {
     // Create a background remover using the DeepLabV3 model
     let segmentation = try SegmentationKit.makeBackgroundRemover(model: .deepLabV3)
-    
+
     Task {
         // Perform segmentation asynchronously
         let result = try await segmentation.segment(image: inputImage)
@@ -44,15 +43,15 @@ do {
 
 ### Parameters
 
-* `model`: The Core ML model to use for segmentation. Currently supported:
+- `model`: The Core ML model to use for segmentation. Currently supported:
 
-  * `.deepLabV3`
+  - `.deepLabV3`
 
-* `image`: The input `UIImage` to perform background removal on.
+- `image`: The input `UIImage` to perform background removal on.
 
 ### Result
 
-* Returns a `UIImage` with the background removed according to the selected model.
+- Returns a `UIImage` with the background removed according to the selected model.
 
 ## Example
 
@@ -85,3 +84,7 @@ struct ContentView: View {
 }
 ```
 
+## Samples from bundled example
+
+<img src="Samples/s1.png" alt="Screenshot" width="300"/> 
+<img src="Samples/s2.png" alt="Screenshot" width="300"/>
