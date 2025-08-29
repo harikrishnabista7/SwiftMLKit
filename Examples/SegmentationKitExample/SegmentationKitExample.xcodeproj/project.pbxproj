@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F14438682E55EF950085FF73 /* SegmentationKit in Frameworks */ = {isa = PBXBuildFile; productRef = F14438672E55EF950085FF73 /* SegmentationKit */; };
+		F124472A2E61FAF000BBE08F /* SegmentationKit in Frameworks */ = {isa = PBXBuildFile; productRef = F12447292E61FAF000BBE08F /* SegmentationKit */; };
+		F12447382E61FB8800BBE08F /* SegmentationKit in Frameworks */ = {isa = PBXBuildFile; productRef = F12447372E61FB8800BBE08F /* SegmentationKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +28,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F14438682E55EF950085FF73 /* SegmentationKit in Frameworks */,
+				F124472A2E61FAF000BBE08F /* SegmentationKit in Frameworks */,
+				F12447382E61FB8800BBE08F /* SegmentationKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,7 +72,8 @@
 			);
 			name = SegmentationKitExample;
 			packageProductDependencies = (
-				F14438672E55EF950085FF73 /* SegmentationKit */,
+				F12447292E61FAF000BBE08F /* SegmentationKit */,
+				F12447372E61FB8800BBE08F /* SegmentationKit */,
 			);
 			productName = SegmentationKitExample;
 			productReference = F14438552E55EF6B0085FF73 /* SegmentationKitExample.app */;
@@ -101,7 +104,7 @@
 			mainGroup = F144384C2E55EF6B0085FF73;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				F14438662E55EF950085FF73 /* XCLocalSwiftPackageReference "../../SegmentationKit" */,
+				F12447362E61FB8800BBE08F /* XCLocalSwiftPackageReference "../../../SwiftMLKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F14438562E55EF6B0085FF73 /* Products */;
@@ -337,14 +340,18 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		F14438662E55EF950085FF73 /* XCLocalSwiftPackageReference "../../SegmentationKit" */ = {
+		F12447362E61FB8800BBE08F /* XCLocalSwiftPackageReference "../../../SwiftMLKit" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = ../../SegmentationKit;
+			relativePath = ../../../SwiftMLKit;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F14438672E55EF950085FF73 /* SegmentationKit */ = {
+		F12447292E61FAF000BBE08F /* SegmentationKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SegmentationKit;
+		};
+		F12447372E61FB8800BBE08F /* SegmentationKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SegmentationKit;
 		};
