@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		F124472A2E61FAF000BBE08F /* SegmentationKit in Frameworks */ = {isa = PBXBuildFile; productRef = F12447292E61FAF000BBE08F /* SegmentationKit */; };
 		F12447382E61FB8800BBE08F /* SegmentationKit in Frameworks */ = {isa = PBXBuildFile; productRef = F12447372E61FB8800BBE08F /* SegmentationKit */; };
+		F12447672E621BB700BBE08F /* MLKitUtilities in Frameworks */ = {isa = PBXBuildFile; productRef = F12447662E621BB700BBE08F /* MLKitUtilities */; };
+		F12447692E621BB700BBE08F /* SegmentationKit in Frameworks */ = {isa = PBXBuildFile; productRef = F12447682E621BB700BBE08F /* SegmentationKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F12447672E621BB700BBE08F /* MLKitUtilities in Frameworks */,
+				F12447692E621BB700BBE08F /* SegmentationKit in Frameworks */,
 				F124472A2E61FAF000BBE08F /* SegmentationKit in Frameworks */,
 				F12447382E61FB8800BBE08F /* SegmentationKit in Frameworks */,
 			);
@@ -74,6 +78,8 @@
 			packageProductDependencies = (
 				F12447292E61FAF000BBE08F /* SegmentationKit */,
 				F12447372E61FB8800BBE08F /* SegmentationKit */,
+				F12447662E621BB700BBE08F /* MLKitUtilities */,
+				F12447682E621BB700BBE08F /* SegmentationKit */,
 			);
 			productName = SegmentationKitExample;
 			productReference = F14438552E55EF6B0085FF73 /* SegmentationKitExample.app */;
@@ -104,7 +110,7 @@
 			mainGroup = F144384C2E55EF6B0085FF73;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				F12447362E61FB8800BBE08F /* XCLocalSwiftPackageReference "../../../SwiftMLKit" */,
+				F12447652E621BB700BBE08F /* XCLocalSwiftPackageReference "../../../SwiftMLKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F14438562E55EF6B0085FF73 /* Products */;
@@ -340,7 +346,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		F12447362E61FB8800BBE08F /* XCLocalSwiftPackageReference "../../../SwiftMLKit" */ = {
+		F12447652E621BB700BBE08F /* XCLocalSwiftPackageReference "../../../SwiftMLKit" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../../../SwiftMLKit;
 		};
@@ -352,6 +358,14 @@
 			productName = SegmentationKit;
 		};
 		F12447372E61FB8800BBE08F /* SegmentationKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SegmentationKit;
+		};
+		F12447662E621BB700BBE08F /* MLKitUtilities */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MLKitUtilities;
+		};
+		F12447682E621BB700BBE08F /* SegmentationKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SegmentationKit;
 		};
