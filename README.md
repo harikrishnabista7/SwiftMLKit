@@ -91,7 +91,7 @@ struct ContentView: View {
 SwiftMLKit can be installed via **Swift Package Manager**:
 
 ```swift
-https://github.com/yourusername/SwiftMLKit
+https://github.com/harikrishnabista7/SwiftMLKit
 ```
 
 1. In Xcode: **File > Add Package Dependency…**  
