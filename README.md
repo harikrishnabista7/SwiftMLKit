@@ -63,8 +63,7 @@ struct ContentView: View {
                 Task {
                     do {
                         let segmenter = try SegmentationKit.makeSegmenter(model: .deepLabV3)
-                        let mask = try await segmentation.segment(image: inputImage)
-                        processedImage = inputImage.applyingMask(mask)
+                        processedImage = try await segmenter.removeBackground(from: inputImage)
                     } catch {
                         print("Segmentation failed:", error)
                     }

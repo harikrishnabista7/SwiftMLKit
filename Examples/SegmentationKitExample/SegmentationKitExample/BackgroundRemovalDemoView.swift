@@ -136,10 +136,8 @@ struct BackgroundRemovalDemoView: View {
         do {
             let segmentation = try SegmentationKit.makeSegmenter(model: .deepLabV3)
             Task {
-                let mask = try await segmentation.segment(image: inputImage)
-                processedImage = inputImage.applyingMask(mask)
+                processedImage = try await segmentation.removeBackground(from: inputImage)
             }
-
         } catch {
             print(error)
         }
