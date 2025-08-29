@@ -112,4 +112,21 @@ extension MLMultiArray {
 
         return context.makeImage()
     }
+
+    /// Print array information for debugging
+    func printInfo() {
+        print("MLMultiArray Info:")
+        print("  Shape: \(shape)")
+        print("  Count: \(count)")
+        print("  Data Type: \(dataType)")
+        print("  Strides: \(strides)")
+
+        // Print first few values
+        let maxPrint = min(10, count)
+        print("  First \(maxPrint) values:", terminator: " ")
+        for i in 0 ..< maxPrint {
+            print(self[i].floatValue, terminator: " ")
+        }
+        print()
+    }
 }

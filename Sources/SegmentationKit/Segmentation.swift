@@ -9,4 +9,5 @@ import UIKit
 
 public protocol Segmentation {
     func segment(image: UIImage) async throws -> UIImage
+//    func segment(pixelBuffer: CVPixelBuffer) async throws -> CVPixelBuffer
 }

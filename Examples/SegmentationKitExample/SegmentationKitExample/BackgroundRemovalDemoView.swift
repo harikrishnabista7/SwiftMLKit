@@ -134,10 +134,10 @@ struct BackgroundRemovalDemoView: View {
     func processImage() {
         guard let selectedImage, let inputImage = UIImage(named: selectedImage) else { return }
         do {
-            let segmentation = try SegmentationKit.makeBackgroundRemover(model: .deepLabV3)
+            let segmentation = try SegmentationKit.makeSegmenter(model: .deepLabV3)
             Task {
-                let result = try await segmentation.segment(image: inputImage)
-                processedImage = result
+                let mask = try await segmentation.segment(image: inputImage)
+                processedImage = inputImage.applyingMask(mask)
             }
 
         } catch {
