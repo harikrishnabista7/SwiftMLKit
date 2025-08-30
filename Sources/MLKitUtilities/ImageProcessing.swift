@@ -131,9 +131,22 @@ public extension ImageProcessing {
 
         return UIImage(cgImage: resultCGImage)
     }
+    
+    ///  Composites foreground image over the background image using GPU acceleration if available
+    /// - Parameters:
+    ///   - foreground: A `UIImage` representing the image, which needs to be put over background image, if this image is fully opaque the background won't be visible
+    ///   - background: A `UIImage` representing the background which is visible through the trasparent part of the foreground image
+    /// - Returns: A new `UIImage` with foreground image put over another background image. if the input or mask cannot be converted to `CGImage` or if the Core Image processing fails.
+    func composite(foreground: UIImage, over background: UIImage) -> UIImage? {
+        guard let foregroundCGImage = foreground.cgImage,
+              let backgroundCGImage = background.resize(to: foreground.size).cgImage else { return nil }
 
-//    func composite(_ foreground: UIImage, with background: UIImage) -> UIImage? {
-//        guard let foregroundCGImage = foreground.cgImage, let backgroundCGImage = background.cgImage else { return nil }
-//
-//    }
+        compositeOverFilter.backgroundImage = CIImage(cgImage: backgroundCGImage)
+        compositeOverFilter.inputImage = CIImage(cgImage: foregroundCGImage)
+
+        guard let outputCIImage = compositeOverFilter.outputImage,
+              let resultCGImage = createCGImage(from: outputCIImage) else { return nil }
+
+        return UIImage(cgImage: resultCGImage)
+    }
 }
