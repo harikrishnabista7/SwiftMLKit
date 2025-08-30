@@ -102,7 +102,7 @@ https://github.com/harikrishnabista7/SwiftMLKit
 
 ## Demo Applications
 
-- **SegmentationKitExample**: Demonstrates background removal
+- **SegmentationKitExample**: Demonstrates background removal, background replace
 
 Future demos will include **PoseKit** and **DetectionKit** once implemented.
 
