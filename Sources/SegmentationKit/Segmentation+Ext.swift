@@ -12,4 +12,8 @@ public extension Segmentation {
         let mask = try await segment(image: image)
         return image.applyingMask(mask)
     }
+    
+    func replaceBackground(of image: UIImage, withBackground background: UIImage) async throws -> UIImage {
+        return image
+    }
 }
