@@ -4,8 +4,8 @@
 //
 //  Created by hari krishna on 29/08/2025.
 //
-import Metal
 import CoreImage.CIFilterBuiltins
+import Metal
 import UIKit
 
 /// Errors that may occur during image processing.
@@ -22,6 +22,9 @@ public class ImageProcessing {
 
     /// A Core Image filter used to blend the original image with a mask.
     private lazy var maskFilter = CIFilter.blendWithMask()
+
+    /// A Core Image filter used to put image over another image
+    private lazy var compositeOverFilter = CIFilter.sourceOverCompositing()
 
     /// Initializes the ImageProcessing utility.
     /// Uses Metal-backed CIContext if a GPU device is available.
@@ -119,12 +122,30 @@ public extension ImageProcessing {
     ///
     /// - Returns: A new `UIImage` with the mask applied. Returns `nil` if the input or mask cannot be converted to `CGImage` or if the Core Image processing fails.
     func applyMask(_ mask: UIImage, to image: UIImage) -> UIImage? {
-        guard let inputCgImage = image.cgImage, let maskCgImage = mask.cgImage else { return nil }
+        guard let inputCgImage = image.cgImage, let maskCgImage = mask.resize(to: image.size).cgImage else { return nil }
 
         maskFilter.inputImage = CIImage(cgImage: inputCgImage)
         maskFilter.maskImage = CIImage(cgImage: maskCgImage)
 
         guard let outputCIImage = maskFilter.outputImage, let resultCGImage = createCGImage(from: outputCIImage) else { return nil }
+
+        return UIImage(cgImage: resultCGImage)
+    }
+    
+    ///  Composites foreground image over the background image using GPU acceleration if available
+    /// - Parameters:
+    ///   - foreground: A `UIImage` representing the image, which needs to be put over background image, if this image is fully opaque the background won't be visible
+    ///   - background: A `UIImage` representing the background which is visible through the trasparent part of the foreground image
+    /// - Returns: A new `UIImage` with foreground image put over another background image. if the input or mask cannot be converted to `CGImage` or if the Core Image processing fails.
+    func composite(foreground: UIImage, over background: UIImage) -> UIImage? {
+        guard let foregroundCGImage = foreground.cgImage,
+              let backgroundCGImage = background.resize(to: foreground.size).cgImage else { return nil }
+
+        compositeOverFilter.backgroundImage = CIImage(cgImage: backgroundCGImage)
+        compositeOverFilter.inputImage = CIImage(cgImage: foregroundCGImage)
+
+        guard let outputCIImage = compositeOverFilter.outputImage,
+              let resultCGImage = createCGImage(from: outputCIImage) else { return nil }
 
         return UIImage(cgImage: resultCGImage)
     }

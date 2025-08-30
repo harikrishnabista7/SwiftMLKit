@@ -14,6 +14,9 @@ public extension UIImage {
     ///   - scale: The scale factor for the output image (default is 1.0).
     /// - Returns: A new `UIImage` resized to the specified size.
     func resize(to targetSize: CGSize, scale: CGFloat = 1.0) -> UIImage {
+        if size == targetSize {
+            return self
+        }
         let format = UIGraphicsImageRendererFormat()
         format.scale = scale
 
