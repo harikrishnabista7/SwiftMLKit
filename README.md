@@ -2,7 +2,7 @@
 
 **SwiftMLKit** is a modular Swift package that brings **on-device machine learning capabilities** to iOS applications. It is designed as an umbrella framework, where each module focuses on a specific ML task, all powered by Core ML for privacy-focused, high-performance inference.
 
-Currently implemented: **SegmentationKit** (DeepLabV3, U²-Net coming soon).
+Currently implemented: **SegmentationKit** (DeepLabV3, U²-Netp).
 
 Future modules: **PoseKit**, **DetectionKit**.
 
@@ -34,7 +34,7 @@ On-device background removal and image segmentation with pixel-accurate masks.
 
 **Models Implemented:**
 - **DeepLabV3**: High-accuracy semantic segmentation  
-- **U²-Net**: Lightweight alternative for faster inference *(Coming Soon)*
+- **U²-Netp**: Lightweight alternative for faster inference
 
 **Use Cases:** Background removal, subject extraction, image editing
 
@@ -110,7 +110,6 @@ Future demos will include **PoseKit** and **DetectionKit** once implemented.
 
 ## Roadmap
 
-- Add U²-Net to SegmentationKit  
 - Implement PoseKit for human pose estimation  
 - Implement DetectionKit for object detection  
 - Real-time video support for segmentation and detection  

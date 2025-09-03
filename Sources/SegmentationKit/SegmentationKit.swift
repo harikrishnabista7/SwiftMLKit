@@ -6,6 +6,8 @@ public final class SegmentationKit {
         switch model {
         case .deepLabV3:
             return try DeepLabSegmentation()
+        case .u2Net:
+            return try U2NetSegmentation()
         }
     }
 }

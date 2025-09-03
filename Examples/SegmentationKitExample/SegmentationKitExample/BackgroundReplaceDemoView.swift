@@ -16,7 +16,7 @@ struct BackgroundReplaceDemoView: View {
     @State private var selectedBackground: String?
     @State private var processedImage: UIImage?
     
-    @State private var selectedModel: BackgroundModel = .deepLab
+    @State private var selectedModel: SegmentationModel = .deepLabV3
     @State private var showImagePicker: Bool = false
     @State private var showBackgroundPicker: Bool = false
 
@@ -25,7 +25,7 @@ struct BackgroundReplaceDemoView: View {
             VStack(spacing: 20) {
                 // --- Model Picker ---
                 Menu {
-                    ForEach(BackgroundModel.allCases) { model in
+                    ForEach(SegmentationModel.cases) { model in
                         Button {
                             selectedModel = model
                         } label: {
@@ -172,7 +172,7 @@ struct BackgroundReplaceDemoView: View {
         else { return }
 
         do {
-            let segmentation = try SegmentationKit.makeSegmenter(model: .deepLabV3)
+            let segmentation = try SegmentationKit.makeSegmenter(model: selectedModel)
             
             Task {
                 processedImage = try await segmentation.replaceBackground(of: fg, withBackground: bg)

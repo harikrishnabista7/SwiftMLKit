@@ -8,10 +8,23 @@
 import SegmentationKit
 import SwiftUI
 
-enum BackgroundModel: String, CaseIterable, Identifiable {
-    case deepLab = "DeepLabV3"
+//enum BackgroundModel: String, CaseIterable, Identifiable {
+//    case deepLab = "DeepLabV3"
+//    case u2net = "U2Net"
+//
+//    var id: String { rawValue }
+//}
+extension SegmentationModel {
+    static var cases: [SegmentationModel] {
+        [.deepLabV3, .u2Net]
+    }
+    var rawValue: String {
+        switch self {
+        case .deepLabV3: return "DeepLabV3"
+        case .u2Net: return "U2Netp"
+        }
+    }
 
-    var id: String { rawValue }
 }
 
 struct BackgroundRemovalDemoView: View {
@@ -19,14 +32,14 @@ struct BackgroundRemovalDemoView: View {
 
     @State private var selectedImage: String?
     @State private var processedImage: UIImage?
-    @State private var selectedModel: BackgroundModel = .deepLab
+    @State private var selectedModel: SegmentationModel = .deepLabV3
     @State private var showImagePicker: Bool = false
 
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
                 Menu {
-                    ForEach(BackgroundModel.allCases) { model in
+                    ForEach(SegmentationModel.cases) { model in
                         Button {
                             selectedModel = model
                         } label: {
@@ -134,7 +147,7 @@ struct BackgroundRemovalDemoView: View {
     func processImage() {
         guard let selectedImage, let inputImage = UIImage(named: selectedImage) else { return }
         do {
-            let segmentation = try SegmentationKit.makeSegmenter(model: .deepLabV3)
+            let segmentation = try SegmentationKit.makeSegmenter(model: selectedModel)
             Task {
                 processedImage = try await segmentation.removeBackground(from: inputImage)
             }

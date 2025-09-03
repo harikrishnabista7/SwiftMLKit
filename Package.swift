@@ -22,7 +22,8 @@ let package = Package(
             name: "SegmentationKit",
             dependencies: ["MLKitUtilities"],
             resources: [
-                .process("DeepLabV3/DeepLabV3.mlpackage")
+                .process("DeepLabV3/DeepLabV3.mlpackage"),
+                .process("U2Netp/u2netp.mlmodel")
             ]
         ),
             
