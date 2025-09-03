@@ -172,7 +172,7 @@ struct BackgroundReplaceDemoView: View {
         else { return }
 
         do {
-            let segmentation = try SegmentationKit.makeSegmenter(model: .deepLabV3)
+            let segmentation = try SegmentationKit.makeSegmenter(model: selectedModel)
             
             Task {
                 processedImage = try await segmentation.replaceBackground(of: fg, withBackground: bg)
