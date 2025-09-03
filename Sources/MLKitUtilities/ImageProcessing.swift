@@ -39,7 +39,7 @@ public class ImageProcessing {
     // MARK: - CGImage / CIImage Conversion
 
     /// Creates a `CGImage` from a `CIImage` using the Metal-backed CIContext.
-    func createCGImage(from ciImage: CIImage) -> CGImage? {
+    public func createCGImage(from ciImage: CIImage) -> CGImage? {
         context.createCGImage(ciImage, from: ciImage.extent)
     }
 

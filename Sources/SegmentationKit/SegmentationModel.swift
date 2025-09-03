@@ -6,6 +6,9 @@
 //
 
 
-public enum SegmentationModel {
+public enum SegmentationModel: Identifiable {
     case deepLabV3
+    case u2Net
+    
+    public var id: Self { self }
 }
