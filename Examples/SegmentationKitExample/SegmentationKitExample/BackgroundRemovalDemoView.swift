@@ -21,7 +21,7 @@ extension SegmentationModel {
     var rawValue: String {
         switch self {
         case .deepLabV3: return "DeepLabV3"
-        case .u2Net: return "U2Net"
+        case .u2Net: return "U2Netp"
         }
     }
 
